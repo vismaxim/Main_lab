@@ -1,4 +1,5 @@
 import math
+import string
 # Словник з даними про планети (радіус орбіти та лінійна швидкість
 D = {'R': {'Mercury': 58e6, 'Venus': 108e6, 'Earth': 150e6}, 'V': {'Mercury': 47.87, 'Venus': 35.02, 'Earth': 29.79}}
 
@@ -26,19 +27,27 @@ def rep(a, b):
 while True:
     try:
         P1 = input('Enter planet name 1st ')
-        for key in D.keys():
-            if key == P1:
+        for i in D['R'].keys():
+            if P1 == i:
+                print('norm')
                 break
-    except KeyError:
+        else:
+            raise NameError
+        break
+    except NameError:
         print('Unknown planet name')
-        continue
 while True:
     try:
         P2 = input('Enter planet name 2nd ')
-
+        for i in D['R'].keys():
+            if P2 == i:
+                print('norm')
+                break
+        else:
+            raise NameError
+        break
     except NameError:
         print('Unknown planet name')
-        continue
 Y1 = diy(P1)
 Y2 = diy(P2)
 print(Y1, 'days in year on', P1)
